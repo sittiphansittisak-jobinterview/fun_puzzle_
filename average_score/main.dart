@@ -1,10 +1,10 @@
 void main() {
-  final input = [50, 60, 70, 80]; //You can change this!
+  final List<int> input = [50, 60, 70, 80]; //You can change this!
 
   final average = getAverage(input);
   final grade = getGrade(average);
 
-  showResult(average: average, grade: grade);
+  showResult(input: input, average: average, grade: grade);
 }
 
 double getAverage(List<int> scoreList) {
@@ -23,7 +23,9 @@ String getGrade(double score) {
   return 'F';
 }
 
-void showResult({required double average, required String grade}) {
+void showResult({required input, required double average, required String grade}) {
+  print('input: $input');
+  print('output:');
   print('คะแนนเฉลี่ย: ${average.toStringAsFixed(2)}');
   print('เกรด: $grade');
 }

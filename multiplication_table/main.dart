@@ -2,7 +2,7 @@ final countStart = 1;
 final countStop = 12;
 
 void main() {
-  final input = 99; //You can change this!
+  final int input = 99; //You can change this!
 
   final table = getTable(input);
 

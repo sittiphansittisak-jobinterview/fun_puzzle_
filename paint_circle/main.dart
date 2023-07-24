@@ -14,11 +14,14 @@ String replaceMiddle({required String originalString, required String replacemen
 }
 
 void main() {
-  final input = 10; //You can change this!
+  final int input = 10; //You can change this!
+  if (input <= 0) return print('Warning: Invalid input!');
+
   final diameter = input * 2 - 1;
   final area = getArea(diameter);
   final areaPainted = paintCircle(area);
-  display(areaPainted);
+
+  showResult(input: input, area: areaPainted);
 }
 
 List<List<String>> getArea(int diameter) {
@@ -46,7 +49,9 @@ List<List<String>> paintCircle(List<List<String>> area) {
   return area;
 }
 
-void display(List<List<String>> area) {
+void showResult({required input, required List<List<String>> area}) {
+  print('input: $input');
+  print('output:');
   for (int row = 0; row < area.length; row++) {
     print(area[row].map((e) => replaceMiddle(originalString: displayBlank * repetition, replacement: e)).join());
   }

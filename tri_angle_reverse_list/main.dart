@@ -3,14 +3,12 @@ final displayTriangle = '*';
 final displayBlank = ' ';
 
 void main() {
-  final heightList = <int>[10, 1, 2, 3, 4, 5, 3, 2, 1, 10]; //You can change this!
-  final containsNegative = heightList.any((element) => element <= 0);
-  if (heightList.isEmpty || containsNegative) return print('result: (Invalid input!)');
-  print('input: ${heightList.join(', ')}');
+  final List<int> input = [10, 1, 2, 3, 4, 5, 3, 2, 1, 10]; //You can change this!
+  final containsNegative = input.any((element) => element <= 0);
+  if (input.isEmpty || containsNegative) return print('Warning: Invalid input!');
 
-  final linesList = triangleListBuilder(heightList: heightList);
+  final linesList = triangleListBuilder(heightList: input);
   List<List<String>> displayLines = [];
-
   //รวมแต่ละบรรทัดของลิสต์รูปสามเหลี่ยมเข้าด้วยกัน
   for (final lines in linesList) {
     if (displayLines.isEmpty) {
@@ -22,11 +20,7 @@ void main() {
     }
   }
 
-  //แสดงรูปสามเหลี่ยม
-  print('result:');
-  for (final line in displayLines) {
-    print(line.join());
-  }
+  showResult(input: input, displayLines: displayLines);
 }
 
 List<List<List<String>>> triangleListBuilder({required List<int> heightList}) {
@@ -78,4 +72,12 @@ List<List<String>> triAngleBuilder({required int height, required bool isShowInd
   }
   lines.add(indicatorLine);
   return lines;
+}
+
+void showResult({required input, required List<List<String>> displayLines}) {
+  print('input: $input');
+  print('output:');
+  for (final line in displayLines) {
+    print(line.join());
+  }
 }
