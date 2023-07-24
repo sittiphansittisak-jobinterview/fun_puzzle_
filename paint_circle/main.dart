@@ -32,6 +32,7 @@ List<List<String>> getArea(int diameter) {
   return area;
 }
 
+//ใช้ทฤษฎีบทพีทาโกรัส
 List<List<String>> paintCircle(List<List<String>> area) {
   final radius = area.length ~/ 2;
   for (int row = 0; row < area.length; row++) {
